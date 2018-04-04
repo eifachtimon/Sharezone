@@ -1,9 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'reset_password.dart';
 //import 'package:google_sign_in/google_sign_in.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget{
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => new LoginPage(),
     HomePage.tag: (context) => new HomePage(),
+    ResetPage.tag: (context) => new ResetPage(),
   };
     @override
     Widget build(BuildContext context) {

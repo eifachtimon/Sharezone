@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'reset_password.dart';
 //import 'package:google_sign_in/google_sign_in.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -132,10 +133,10 @@ class _LoginPageState extends State<LoginPage> {
 
     final forgotLable = new FlatButton(
       onPressed: () {
-
+        Navigator.of(context).pushNamed(ResetPage.tag);
       },
       child: new Text(
-          'Passwort zurück setzten?', style: new TextStyle(color: Colors.black54)),
+          'Passwort zurücksetzten?', style: new TextStyle(color: Colors.black54)),
     );
 
     return new Scaffold(
