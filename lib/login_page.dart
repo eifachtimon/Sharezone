@@ -1,0 +1,161 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'home_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
+final GoogleSignIn _googleSignIn = new GoogleSignIn();
+
+class LoginPage extends StatefulWidget {
+  static String tag = 'login-page';
+  @override
+  _LoginPageState createState() => new _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  static final TextEditingController _user = new TextEditingController();
+  static final TextEditingController _pass = new TextEditingController();
+  String get username => _user.text;
+  String get passi => _pass.text;
+
+  @override
+  Widget build(BuildContext context) {
+    final logo = new Hero(
+      tag: 'hero',
+      child: new CircleAvatar(
+          backgroundColor: Colors.transparent,
+          radius: 48.0,
+          child: new Image.asset('assets/logo.jpeg')
+      ),
+    );
+    final email = new TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      controller: _user,
+      autofocus: false,
+      decoration: new InputDecoration(
+          hintText: 'Email',
+          contentPadding: new EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          border: new OutlineInputBorder(
+              borderRadius: new BorderRadius.circular(32.0)
+          )
+      ),
+    );
+
+    final password = new TextFormField(
+      autofocus: false,
+      controller: _pass,
+      obscureText: true,
+      decoration: new InputDecoration(
+          hintText: 'Passwort',
+          contentPadding: new EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          border: new OutlineInputBorder(
+              borderRadius: new BorderRadius.circular(32.0)
+          )
+      ),
+    );
+
+    void alertEmail() {
+      AlertDialog alert = new AlertDialog(
+        content: new Text(
+          'Email oder Passwort sind falsch!',
+          style:  new TextStyle(fontSize: 20.0),),
+        actions: <Widget>[
+          new FlatButton(onPressed: (){Navigator.pop(context);}, child: new Text('Ok')),
+        ],
+      );
+      showDialog(context: context, child: alert);
+    }
+
+    final loginButton = new Padding(
+        padding: new EdgeInsets.symmetric(vertical: 16.0),
+        child: new Material(
+          borderRadius: new BorderRadius.circular(30.0),
+          shadowColor: Colors.lightBlueAccent.shade100,
+          elevation: 5.0,
+          child: new MaterialButton(
+            minWidth: 140.0,
+            height: 42.0,
+            onPressed: () async {
+              bool error = false;
+              //Navigator.of(context).pushNamed(HomePage.tag);
+              //_auth.createUserWithEmailAndPassword(email: username, password: password.toString());
+              try{await _auth.signInWithEmailAndPassword(email: username, password: passi);}
+              catch(e){print(e); error = true; alertEmail();}
+              if(error == false) {
+                print("Done");
+                Navigator.of(context).pushReplacementNamed(HomePage.tag);
+              }
+            },
+            color: Colors.lightBlueAccent,
+            child: new Text(
+                'Login In', style: new TextStyle(color: Colors.white)),
+          ),
+        )
+    );
+
+    void alterCreate() {
+      AlertDialog alert = new AlertDialog(
+        content: new Text(
+          'Email/Passwort ist falsch oder Account existiert schon!',
+          style:  new TextStyle(fontSize: 20.0),),
+        actions: <Widget>[
+          new FlatButton(onPressed: (){Navigator.pop(context);}, child: new Text('Ok')),
+        ],
+      );
+      showDialog(context: context, child: alert);
+    }
+
+    final createButton = new Padding(
+        padding: new EdgeInsets.symmetric(vertical: 16.0),
+        child: new Material(
+          borderRadius: new BorderRadius.circular(30.0),
+          shadowColor: Colors.lightBlueAccent.shade100,
+          elevation: 5.0,
+          child: new MaterialButton(
+            minWidth: 140.0,
+            height: 42.0,
+            onPressed: () async {
+              bool ready = true;
+              try{await _auth.createUserWithEmailAndPassword(email: username, password: passi);}
+              catch(e){print('Error creating the account for: $username'); ready = false; alterCreate();}
+              if(ready) {
+                print('Created Accot for: $username');
+              }
+            },
+            color: Colors.lightBlueAccent,
+            child: new Text(
+                'Account erstellen', style: new TextStyle(color: Colors.white)),
+          ),
+        )
+    );
+
+    final forgotLable = new FlatButton(
+      onPressed: () {
+
+      },
+      child: new Text(
+          'Passwort zurück setzten?', style: new TextStyle(color: Colors.black54)),
+    );
+
+    return new Scaffold(
+      backgroundColor: Colors.white,
+      body: new Center(
+        child: new ListView(
+          shrinkWrap: true,
+          padding: new EdgeInsets.only(left: 24.0, right: 24.0),
+          children: <Widget>[
+            logo,
+            new SizedBox(height: 48.0),
+            email,
+            new SizedBox(height: 8.0),
+            password,
+            new SizedBox(height: 14.0),
+            new Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: <Widget>[loginButton,createButton]),
+            forgotLable
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="sharezone_login_test" default="all">
+  
+  
+  <property file="sharezone_login_test.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+    <include name="*.ane"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.android_api_23_platform" value="F:/Stick/Informatik/Bluej/jdk/bin"/>
+  <path id="jdk.classpath.android_api_23_platform">
+    <fileset dir="${jdk.home.android_api_23_platform}">
+      <include name="platforms/android-23/android.jar"/>
+      <include name="platforms/android-23/data/res"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.android_api_23_platform}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.android_api_23_platform}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.android_api_23_platform"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.dart_packages.classpath">
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/analyzer-0.31.1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/args-1.3.0/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/async-2.0.4/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/barback-0.15.2+14/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/boolean_selector-1.0.2/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/charcode-1.1.1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/cli_util-0.1.2+1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/collection-1.14.5/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/convert-2.0.1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/crypto-2.0.2+1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/csslib-0.14.1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/cupertino_icons-0.1.1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/front_end-0.1.0-alpha.9/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/glob-1.1.5/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/html-0.13.2+2/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/http-0.11.3+16/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/http_multi_server-2.0.4/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/http_parser-3.1.1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/io-0.3.2+1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/isolate-1.1.0/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/js-0.6.1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/kernel-0.3.0-alpha.9/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/logging-0.11.3+1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/matcher-0.12.1+4/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/meta-1.1.2/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/mime-0.9.6/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/mockito-2.2.3/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/multi_server_socket-1.0.1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/node_preamble-1.4.0/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/package_config-1.0.3/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/package_resolver-1.0.2/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/path-1.5.1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/plugin-0.2.0+2/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/pool-1.3.4/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/pub_semver-1.3.2/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/quiver-0.28.0/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/shelf-0.7.2/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/shelf_packages_handler-1.0.3/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/shelf_static-0.2.7/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/shelf_web_socket-0.2.2/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/source_map_stack_trace-1.1.4/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/source_maps-0.10.4/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/source_span-1.4.0/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/stack_trace-1.9.1/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/stream_channel-1.6.3/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/string_scanner-1.0.2/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/term_glyph-1.0.0/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/test-0.12.30+3/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/typed_data-1.1.5/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/utf-0.9.0+4/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/vector_math-2.0.5/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/watcher-0.9.7+7/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/web_socket_channel-1.0.7/lib"/>
+    <pathelement location="C:/Users/Niclas/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/yaml-2.1.13/lib"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/pkg/sky_engine/lib"/>
+    <pathelement location="${basedir}/../../Git/flutter/packages/flutter/lib"/>
+    <pathelement location="${basedir}/../../Git/flutter/packages/flutter_test/lib"/>
+  </path>
+  
+  <path id="library.dart_sdk.classpath">
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/async"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/collection"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/convert"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/core"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/developer"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/html"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/indexed_db"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/io"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/isolate"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/js"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/js_util"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/math"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/mirrors"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/svg"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/typed_data"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/web_audio"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/web_gl"/>
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/dart-sdk/lib/web_sql"/>
+  </path>
+  
+  <path id="library.flutter_for_android.classpath">
+    <pathelement location="${basedir}/../../Git/flutter/bin/cache/artifacts/engine/android-arm/flutter.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module sharezone_login_test -->
+  
+  <dirname property="module.sharezone_login_test.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.sharezone_login_test" value=""/>
+  <property name="module.jdk.bin.sharezone_login_test" value=""/>
+  <property name="module.jdk.classpath.sharezone_login_test" value=""/>
+  
+  <property name="compiler.args.sharezone_login_test" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  
+  <property name="sharezone_login_test.output.dir" value="${module.sharezone_login_test.basedir}/out/production/sharezone_login_test"/>
+  <property name="sharezone_login_test.testoutput.dir" value="${module.sharezone_login_test.basedir}/out/test/sharezone_login_test"/>
+  
+  <path id="sharezone_login_test.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="sharezone_login_test.module.production.classpath">
+    <path refid="library.dart_sdk.classpath"/>
+    <path refid="library.dart_packages.classpath"/>
+  </path>
+  
+  <path id="sharezone_login_test.runtime.production.module.classpath">
+    <pathelement location="${sharezone_login_test.output.dir}"/>
+    <path refid="library.dart_sdk.classpath"/>
+    <path refid="library.dart_packages.classpath"/>
+  </path>
+  
+  <path id="sharezone_login_test.module.classpath">
+    <pathelement location="${sharezone_login_test.output.dir}"/>
+    <path refid="library.dart_sdk.classpath"/>
+    <path refid="library.dart_packages.classpath"/>
+  </path>
+  
+  <path id="sharezone_login_test.runtime.module.classpath">
+    <pathelement location="${sharezone_login_test.testoutput.dir}"/>
+    <pathelement location="${sharezone_login_test.output.dir}"/>
+    <path refid="library.dart_sdk.classpath"/>
+    <path refid="library.dart_packages.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.sharezone_login_test">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.sharezone_login_test">
+    <patternset refid="excluded.from.module.sharezone_login_test"/>
+  </patternset>
+  
+  
+  <target name="compile.module.sharezone_login_test" depends="compile.module.sharezone_login_test.production,compile.module.sharezone_login_test.tests" description="Compile module sharezone_login_test"/>
+  
+  <target name="compile.module.sharezone_login_test.production" depends="register.custom.compilers" description="Compile module sharezone_login_test; production classes"/>
+  
+  <target name="compile.module.sharezone_login_test.tests" depends="register.custom.compilers,compile.module.sharezone_login_test.production" description="compile module sharezone_login_test; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.sharezone_login_test" description="cleanup module">
+    <delete dir="${sharezone_login_test.output.dir}"/>
+    <delete dir="${sharezone_login_test.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module sharezone_login_test_android -->
+  
+  <dirname property="module.sharezone_login_test_android.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.sharezone_login_test_android" value="${jdk.home.android_api_23_platform}"/>
+  <property name="module.jdk.bin.sharezone_login_test_android" value="${jdk.bin.android_api_23_platform}"/>
+  <property name="module.jdk.classpath.sharezone_login_test_android" value="jdk.classpath.android_api_23_platform"/>
+  
+  <property name="compiler.args.sharezone_login_test_android" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  
+  <property name="sharezone_login_test_android.output.dir" value="${module.sharezone_login_test_android.basedir}/out/production/sharezone_login_test_android"/>
+  <property name="sharezone_login_test_android.testoutput.dir" value="${module.sharezone_login_test_android.basedir}/out/test/sharezone_login_test_android"/>
+  
+  <path id="sharezone_login_test_android.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="sharezone_login_test_android.module.production.classpath">
+    <path refid="${module.jdk.classpath.sharezone_login_test_android}"/>
+    <path refid="library.flutter_for_android.classpath"/>
+  </path>
+  
+  <path id="sharezone_login_test_android.runtime.production.module.classpath">
+    <pathelement location="${sharezone_login_test_android.output.dir}"/>
+    <path refid="library.flutter_for_android.classpath"/>
+  </path>
+  
+  <path id="sharezone_login_test_android.module.classpath">
+    <path refid="${module.jdk.classpath.sharezone_login_test_android}"/>
+    <pathelement location="${sharezone_login_test_android.output.dir}"/>
+    <path refid="library.flutter_for_android.classpath"/>
+  </path>
+  
+  <path id="sharezone_login_test_android.runtime.module.classpath">
+    <pathelement location="${sharezone_login_test_android.testoutput.dir}"/>
+    <pathelement location="${sharezone_login_test_android.output.dir}"/>
+    <path refid="library.flutter_for_android.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.sharezone_login_test_android">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.sharezone_login_test_android">
+    <patternset refid="excluded.from.module.sharezone_login_test_android"/>
+  </patternset>
+  
+  <path id="sharezone_login_test_android.module.sourcepath">
+    <dirset dir="${module.sharezone_login_test_android.basedir}/android">
+      <include name="app/src/main/java"/>
+      <include name="gen"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.sharezone_login_test_android" depends="compile.module.sharezone_login_test_android.production,compile.module.sharezone_login_test_android.tests" description="Compile module sharezone_login_test_android"/>
+  
+  <target name="compile.module.sharezone_login_test_android.production" depends="register.custom.compilers" description="Compile module sharezone_login_test_android; production classes">
+    <mkdir dir="${sharezone_login_test_android.output.dir}"/>
+    <javac2 destdir="${sharezone_login_test_android.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.sharezone_login_test_android}/javac">
+      <compilerarg line="${compiler.args.sharezone_login_test_android}"/>
+      <bootclasspath refid="sharezone_login_test_android.module.bootclasspath"/>
+      <classpath refid="sharezone_login_test_android.module.production.classpath"/>
+      <src refid="sharezone_login_test_android.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.sharezone_login_test_android"/>
+    </javac2>
+    
+    <copy todir="${sharezone_login_test_android.output.dir}">
+      <fileset dir="${module.sharezone_login_test_android.basedir}/android/app/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.sharezone_login_test_android.basedir}/android/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.sharezone_login_test_android.tests" depends="register.custom.compilers,compile.module.sharezone_login_test_android.production" description="compile module sharezone_login_test_android; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.sharezone_login_test_android" description="cleanup module">
+    <delete dir="${sharezone_login_test_android.output.dir}"/>
+    <delete dir="${sharezone_login_test_android.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.sharezone_login_test, clean.module.sharezone_login_test_android" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.sharezone_login_test, compile.module.sharezone_login_test_android" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
