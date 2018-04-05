@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget{
     @override
     Widget build(BuildContext context) {
       return new MaterialApp(
-          title: 'CodingBrain',
+          title: 'ShareZone',
           debugShowCheckedModeBanner: false,
           theme: new ThemeData(
             primarySwatch: Colors.lightBlue,
@@ -48,7 +48,7 @@ class MyApp2 extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'CodingBrain',
+      title: 'ShareZone',
       debugShowCheckedModeBanner: false,
       theme: new ThemeData(
         primarySwatch: Colors.lightBlue,
