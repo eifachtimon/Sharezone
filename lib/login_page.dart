@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'reset_password.dart';
-//import 'package:google_sign_in/google_sign_in.dart';
+//import 'package:google_sign_in/google_sign_in.dart'; //Used in the future
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
-//final GoogleSignIn _googleSignIn = new GoogleSignIn();
+//final GoogleSignIn _googleSignIn = new GoogleSignIn(); //Used in the future
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
@@ -60,9 +60,13 @@ class _LoginPageState extends State<LoginPage> {
       AlertDialog alert = new AlertDialog(
         content: new Text(
           'Email oder Passwort sind falsch!',
-          style:  new TextStyle(fontSize: 20.0),),
+          style:  new TextStyle(fontSize: 20.0),
+        ),
         actions: <Widget>[
-          new FlatButton(onPressed: (){Navigator.pop(context);}, child: new Text('Ok')),
+          new FlatButton(onPressed: (){
+            Navigator.pop(context);},
+            child: new Text('Ok')
+          ),
         ],
       );
       showDialog(context: context, child: alert);
@@ -78,19 +82,20 @@ class _LoginPageState extends State<LoginPage> {
             minWidth: 140.0,
             height: 42.0,
             onPressed: () async {
-              bool error = false;
-              //Navigator.of(context).pushNamed(HomePage.tag);
-              //_auth.createUserWithEmailAndPassword(email: username, password: password.toString());
-              try{await _auth.signInWithEmailAndPassword(email: username, password: passi);}
-              catch(e){print(e); error = true; alertEmail();}
-              if(error == false) {
-                print("Done");
+              try{
+                await _auth.signInWithEmailAndPassword(email: username, password: passi);
                 Navigator.of(context).pushReplacementNamed(HomePage.tag);
+              }
+              catch(e){
+                print(e);
+                alertEmail();
               }
             },
             color: Colors.lightBlueAccent,
             child: new Text(
-                'Login', style: new TextStyle(color: Colors.white)),
+                'Login',
+                style: new TextStyle(color: Colors.white)
+            ),
           ),
         )
     );
@@ -99,9 +104,13 @@ class _LoginPageState extends State<LoginPage> {
       AlertDialog alert = new AlertDialog(
         content: new Text(
           'Email/Passwort ist falsch oder Account existiert schon!',
-          style:  new TextStyle(fontSize: 20.0),),
-        actions: <Widget>[
-          new FlatButton(onPressed: (){Navigator.pop(context);}, child: new Text('Ok')),
+          style:  new TextStyle(fontSize: 20.0),
+        ),
+          actions: <Widget>[
+          new FlatButton(onPressed: (){
+            Navigator.pop(context);},
+            child: new Text('Ok')
+          ),
         ],
       );
       showDialog(context: context, child: alert);
@@ -111,9 +120,13 @@ class _LoginPageState extends State<LoginPage> {
       AlertDialog alert = new AlertDialog(
         content: new Text(
           'Account erfolgreich erstellt!',
-          style:  new TextStyle(fontSize: 20.0),),
+          style:  new TextStyle(fontSize: 20.0),
+        ),
         actions: <Widget>[
-          new FlatButton(onPressed: (){Navigator.pop(context);}, child: new Text('Ok')),
+          new FlatButton(onPressed: (){
+            Navigator.pop(context);},
+            child: new Text('Ok')
+          ),
         ],
       );
       showDialog(context: context, child: alert);
@@ -129,16 +142,19 @@ class _LoginPageState extends State<LoginPage> {
             minWidth: 140.0,
             height: 42.0,
             onPressed: () async {
-              bool ready = true;
-              try{await _auth.createUserWithEmailAndPassword(email: username, password: passi); alterCreateYep();}
-              catch(e){print('Error creating the account for: $username'); ready = false; alterCreate();}
-              if(ready) {
-                print('Created Accot for: $username');
+              try{
+                await _auth.createUserWithEmailAndPassword(email: username, password: passi);
+                alterCreateYep();
+              }
+              catch(e){
+                alterCreate();
               }
             },
             color: Colors.lightBlueAccent,
             child: new Text(
-                'Account erstellen', style: new TextStyle(color: Colors.white)),
+                'Account erstellen',
+                style: new TextStyle(color: Colors.white)
+            ),
           ),
         )
     );
@@ -148,7 +164,9 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.of(context).pushNamed(ResetPage.tag);
       },
       child: new Text(
-          'Passwort zurücksetzten?', style: new TextStyle(color: Colors.black54)),
+          'Passwort zurücksetzten?',
+          style: new TextStyle(color: Colors.black54)
+      ),
     );
 
     return new Scaffold(
