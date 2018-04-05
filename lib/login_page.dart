@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
             },
             color: Colors.lightBlueAccent,
             child: new Text(
-                'Login In', style: new TextStyle(color: Colors.white)),
+                'Login', style: new TextStyle(color: Colors.white)),
           ),
         )
     );
@@ -99,6 +99,18 @@ class _LoginPageState extends State<LoginPage> {
       AlertDialog alert = new AlertDialog(
         content: new Text(
           'Email/Passwort ist falsch oder Account existiert schon!',
+          style:  new TextStyle(fontSize: 20.0),),
+        actions: <Widget>[
+          new FlatButton(onPressed: (){Navigator.pop(context);}, child: new Text('Ok')),
+        ],
+      );
+      showDialog(context: context, child: alert);
+    }
+
+    void alterCreateYep() {
+      AlertDialog alert = new AlertDialog(
+        content: new Text(
+          'Account erfolgreich erstellt!',
           style:  new TextStyle(fontSize: 20.0),),
         actions: <Widget>[
           new FlatButton(onPressed: (){Navigator.pop(context);}, child: new Text('Ok')),
@@ -118,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 42.0,
             onPressed: () async {
               bool ready = true;
-              try{await _auth.createUserWithEmailAndPassword(email: username, password: passi);}
+              try{await _auth.createUserWithEmailAndPassword(email: username, password: passi); alterCreateYep();}
               catch(e){print('Error creating the account for: $username'); ready = false; alterCreate();}
               if(ready) {
                 print('Created Accot for: $username');
