@@ -83,7 +83,8 @@ class _ResetPageState extends State<ResetPage> {
 
     return new Scaffold(
       backgroundColor: Colors.white,
-      body: new Center(
+      body: new Container(
+        alignment: Alignment.center,
         child: new ListView(
           shrinkWrap: true,
           padding: new EdgeInsets.only(left: 24.0, right: 24.0),
