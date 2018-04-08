@@ -16,7 +16,6 @@ Future main()async {
   else if(user != null){
     runApp(new MyApp2());
   }
-  print(user);
 }
 
 class MyApp extends StatelessWidget{

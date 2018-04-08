@@ -87,7 +87,6 @@ class _LoginPageState extends State<LoginPage> {
                 Navigator.of(context).pushReplacementNamed(HomePage.tag);
               }
               catch(e){
-                print(e);
                 alertEmail();
               }
             },

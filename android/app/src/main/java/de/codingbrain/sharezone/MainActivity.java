@@ -1,4 +1,4 @@
-package de.codingbrain.sharezonelogintest;
+package de.codingbrain.sharezone;
 
 import android.os.Bundle;
 

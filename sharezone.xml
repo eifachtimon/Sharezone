@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="sharezone_login_test" default="all">
+<project name="sharezone" default="all">
   
   
-  <property file="sharezone_login_test.properties"/>
+  <property file="sharezone.properties"/>
   <!-- Uncomment the following property if no tests compilation is needed -->
   <!-- 
   <property name="skip.tests" value="true"/>
@@ -154,6 +154,7 @@
     <pathelement location="${basedir}/../../Git/flutter/bin/cache/artifacts/engine/android-arm/flutter.jar"/>
   </path>
   <!-- Register Custom Compiler Taskdefs -->
+  <property name="idea.home" value="H:/Programme/apps/IDEA-U/ch-0/181.4203.550"/>
   <property name="javac2.home" value="${idea.home}/lib"/>
   <path id="javac2.classpath">
     <pathelement location="${javac2.home}/javac2.jar"/>
@@ -169,165 +170,165 @@
   <!-- Modules -->
   
   
-  <!-- Module sharezone_login_test -->
+  <!-- Module sharezone -->
   
-  <dirname property="module.sharezone_login_test.basedir" file="${ant.file}"/>
+  <dirname property="module.sharezone.basedir" file="${ant.file}"/>
   
   
-  <property name="module.jdk.home.sharezone_login_test" value=""/>
-  <property name="module.jdk.bin.sharezone_login_test" value=""/>
-  <property name="module.jdk.classpath.sharezone_login_test" value=""/>
+  <property name="module.jdk.home.sharezone" value=""/>
+  <property name="module.jdk.bin.sharezone" value=""/>
+  <property name="module.jdk.classpath.sharezone" value=""/>
   
-  <property name="compiler.args.sharezone_login_test" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  <property name="compiler.args.sharezone" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
   
-  <property name="sharezone_login_test.output.dir" value="${module.sharezone_login_test.basedir}/out/production/sharezone_login_test"/>
-  <property name="sharezone_login_test.testoutput.dir" value="${module.sharezone_login_test.basedir}/out/test/sharezone_login_test"/>
+  <property name="sharezone.output.dir" value="${module.sharezone.basedir}/out/production/sharezone"/>
+  <property name="sharezone.testoutput.dir" value="${module.sharezone.basedir}/out/test/sharezone"/>
   
-  <path id="sharezone_login_test.module.bootclasspath">
+  <path id="sharezone.module.bootclasspath">
     <!-- Paths to be included in compilation bootclasspath -->
   </path>
   
-  <path id="sharezone_login_test.module.production.classpath">
+  <path id="sharezone.module.production.classpath">
     <path refid="library.dart_sdk.classpath"/>
     <path refid="library.dart_packages.classpath"/>
   </path>
   
-  <path id="sharezone_login_test.runtime.production.module.classpath">
-    <pathelement location="${sharezone_login_test.output.dir}"/>
+  <path id="sharezone.runtime.production.module.classpath">
+    <pathelement location="${sharezone.output.dir}"/>
     <path refid="library.dart_sdk.classpath"/>
     <path refid="library.dart_packages.classpath"/>
   </path>
   
-  <path id="sharezone_login_test.module.classpath">
-    <pathelement location="${sharezone_login_test.output.dir}"/>
+  <path id="sharezone.module.classpath">
+    <pathelement location="${sharezone.output.dir}"/>
     <path refid="library.dart_sdk.classpath"/>
     <path refid="library.dart_packages.classpath"/>
   </path>
   
-  <path id="sharezone_login_test.runtime.module.classpath">
-    <pathelement location="${sharezone_login_test.testoutput.dir}"/>
-    <pathelement location="${sharezone_login_test.output.dir}"/>
+  <path id="sharezone.runtime.module.classpath">
+    <pathelement location="${sharezone.testoutput.dir}"/>
+    <pathelement location="${sharezone.output.dir}"/>
     <path refid="library.dart_sdk.classpath"/>
     <path refid="library.dart_packages.classpath"/>
   </path>
   
   
-  <patternset id="excluded.from.module.sharezone_login_test">
+  <patternset id="excluded.from.module.sharezone">
     <patternset refid="ignored.files"/>
   </patternset>
   
-  <patternset id="excluded.from.compilation.sharezone_login_test">
-    <patternset refid="excluded.from.module.sharezone_login_test"/>
+  <patternset id="excluded.from.compilation.sharezone">
+    <patternset refid="excluded.from.module.sharezone"/>
   </patternset>
   
   
-  <target name="compile.module.sharezone_login_test" depends="compile.module.sharezone_login_test.production,compile.module.sharezone_login_test.tests" description="Compile module sharezone_login_test"/>
+  <target name="compile.module.sharezone" depends="compile.module.sharezone.production,compile.module.sharezone.tests" description="Compile module sharezone"/>
   
-  <target name="compile.module.sharezone_login_test.production" depends="register.custom.compilers" description="Compile module sharezone_login_test; production classes"/>
+  <target name="compile.module.sharezone.production" depends="register.custom.compilers" description="Compile module sharezone; production classes"/>
   
-  <target name="compile.module.sharezone_login_test.tests" depends="register.custom.compilers,compile.module.sharezone_login_test.production" description="compile module sharezone_login_test; test classes" unless="skip.tests"/>
+  <target name="compile.module.sharezone.tests" depends="register.custom.compilers,compile.module.sharezone.production" description="compile module sharezone; test classes" unless="skip.tests"/>
   
-  <target name="clean.module.sharezone_login_test" description="cleanup module">
-    <delete dir="${sharezone_login_test.output.dir}"/>
-    <delete dir="${sharezone_login_test.testoutput.dir}"/>
+  <target name="clean.module.sharezone" description="cleanup module">
+    <delete dir="${sharezone.output.dir}"/>
+    <delete dir="${sharezone.testoutput.dir}"/>
   </target>
   
   
-  <!-- Module sharezone_login_test_android -->
+  <!-- Module sharezone_android -->
   
-  <dirname property="module.sharezone_login_test_android.basedir" file="${ant.file}"/>
+  <dirname property="module.sharezone_android.basedir" file="${ant.file}"/>
   
   
-  <property name="module.jdk.home.sharezone_login_test_android" value="${jdk.home.android_api_23_platform}"/>
-  <property name="module.jdk.bin.sharezone_login_test_android" value="${jdk.bin.android_api_23_platform}"/>
-  <property name="module.jdk.classpath.sharezone_login_test_android" value="jdk.classpath.android_api_23_platform"/>
+  <property name="module.jdk.home.sharezone_android" value="${jdk.home.android_api_23_platform}"/>
+  <property name="module.jdk.bin.sharezone_android" value="${jdk.bin.android_api_23_platform}"/>
+  <property name="module.jdk.classpath.sharezone_android" value="jdk.classpath.android_api_23_platform"/>
   
-  <property name="compiler.args.sharezone_login_test_android" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
+  <property name="compiler.args.sharezone_android" value="-encoding UTF-8 -source 9 -target 9 ${compiler.args}"/>
   
-  <property name="sharezone_login_test_android.output.dir" value="${module.sharezone_login_test_android.basedir}/out/production/sharezone_login_test_android"/>
-  <property name="sharezone_login_test_android.testoutput.dir" value="${module.sharezone_login_test_android.basedir}/out/test/sharezone_login_test_android"/>
+  <property name="sharezone_android.output.dir" value="${module.sharezone_android.basedir}/out/production/sharezone_android"/>
+  <property name="sharezone_android.testoutput.dir" value="${module.sharezone_android.basedir}/out/test/sharezone_android"/>
   
-  <path id="sharezone_login_test_android.module.bootclasspath">
+  <path id="sharezone_android.module.bootclasspath">
     <!-- Paths to be included in compilation bootclasspath -->
   </path>
   
-  <path id="sharezone_login_test_android.module.production.classpath">
-    <path refid="${module.jdk.classpath.sharezone_login_test_android}"/>
+  <path id="sharezone_android.module.production.classpath">
+    <path refid="${module.jdk.classpath.sharezone_android}"/>
     <path refid="library.flutter_for_android.classpath"/>
   </path>
   
-  <path id="sharezone_login_test_android.runtime.production.module.classpath">
-    <pathelement location="${sharezone_login_test_android.output.dir}"/>
+  <path id="sharezone_android.runtime.production.module.classpath">
+    <pathelement location="${sharezone_android.output.dir}"/>
     <path refid="library.flutter_for_android.classpath"/>
   </path>
   
-  <path id="sharezone_login_test_android.module.classpath">
-    <path refid="${module.jdk.classpath.sharezone_login_test_android}"/>
-    <pathelement location="${sharezone_login_test_android.output.dir}"/>
+  <path id="sharezone_android.module.classpath">
+    <path refid="${module.jdk.classpath.sharezone_android}"/>
+    <pathelement location="${sharezone_android.output.dir}"/>
     <path refid="library.flutter_for_android.classpath"/>
   </path>
   
-  <path id="sharezone_login_test_android.runtime.module.classpath">
-    <pathelement location="${sharezone_login_test_android.testoutput.dir}"/>
-    <pathelement location="${sharezone_login_test_android.output.dir}"/>
+  <path id="sharezone_android.runtime.module.classpath">
+    <pathelement location="${sharezone_android.testoutput.dir}"/>
+    <pathelement location="${sharezone_android.output.dir}"/>
     <path refid="library.flutter_for_android.classpath"/>
   </path>
   
   
-  <patternset id="excluded.from.module.sharezone_login_test_android">
+  <patternset id="excluded.from.module.sharezone_android">
     <patternset refid="ignored.files"/>
   </patternset>
   
-  <patternset id="excluded.from.compilation.sharezone_login_test_android">
-    <patternset refid="excluded.from.module.sharezone_login_test_android"/>
+  <patternset id="excluded.from.compilation.sharezone_android">
+    <patternset refid="excluded.from.module.sharezone_android"/>
   </patternset>
   
-  <path id="sharezone_login_test_android.module.sourcepath">
-    <dirset dir="${module.sharezone_login_test_android.basedir}/android">
+  <path id="sharezone_android.module.sourcepath">
+    <dirset dir="${module.sharezone_android.basedir}/android">
       <include name="app/src/main/java"/>
       <include name="gen"/>
     </dirset>
   </path>
   
   
-  <target name="compile.module.sharezone_login_test_android" depends="compile.module.sharezone_login_test_android.production,compile.module.sharezone_login_test_android.tests" description="Compile module sharezone_login_test_android"/>
+  <target name="compile.module.sharezone_android" depends="compile.module.sharezone_android.production,compile.module.sharezone_android.tests" description="Compile module sharezone_android"/>
   
-  <target name="compile.module.sharezone_login_test_android.production" depends="register.custom.compilers" description="Compile module sharezone_login_test_android; production classes">
-    <mkdir dir="${sharezone_login_test_android.output.dir}"/>
-    <javac2 destdir="${sharezone_login_test_android.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.sharezone_login_test_android}/javac">
-      <compilerarg line="${compiler.args.sharezone_login_test_android}"/>
-      <bootclasspath refid="sharezone_login_test_android.module.bootclasspath"/>
-      <classpath refid="sharezone_login_test_android.module.production.classpath"/>
-      <src refid="sharezone_login_test_android.module.sourcepath"/>
-      <patternset refid="excluded.from.compilation.sharezone_login_test_android"/>
+  <target name="compile.module.sharezone_android.production" depends="register.custom.compilers" description="Compile module sharezone_android; production classes">
+    <mkdir dir="${sharezone_android.output.dir}"/>
+    <javac2 destdir="${sharezone_android.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.sharezone_android}/javac">
+      <compilerarg line="${compiler.args.sharezone_android}"/>
+      <bootclasspath refid="sharezone_android.module.bootclasspath"/>
+      <classpath refid="sharezone_android.module.production.classpath"/>
+      <src refid="sharezone_android.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.sharezone_android"/>
     </javac2>
     
-    <copy todir="${sharezone_login_test_android.output.dir}">
-      <fileset dir="${module.sharezone_login_test_android.basedir}/android/app/src/main/java">
+    <copy todir="${sharezone_android.output.dir}">
+      <fileset dir="${module.sharezone_android.basedir}/android/app/src/main/java">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
-      <fileset dir="${module.sharezone_login_test_android.basedir}/android/gen">
+      <fileset dir="${module.sharezone_android.basedir}/android/gen">
         <patternset refid="compiler.resources"/>
         <type type="file"/>
       </fileset>
     </copy>
   </target>
   
-  <target name="compile.module.sharezone_login_test_android.tests" depends="register.custom.compilers,compile.module.sharezone_login_test_android.production" description="compile module sharezone_login_test_android; test classes" unless="skip.tests"/>
+  <target name="compile.module.sharezone_android.tests" depends="register.custom.compilers,compile.module.sharezone_android.production" description="compile module sharezone_android; test classes" unless="skip.tests"/>
   
-  <target name="clean.module.sharezone_login_test_android" description="cleanup module">
-    <delete dir="${sharezone_login_test_android.output.dir}"/>
-    <delete dir="${sharezone_login_test_android.testoutput.dir}"/>
+  <target name="clean.module.sharezone_android" description="cleanup module">
+    <delete dir="${sharezone_android.output.dir}"/>
+    <delete dir="${sharezone_android.testoutput.dir}"/>
   </target>
   
   <target name="init" description="Build initialization">
     <!-- Perform any build initialization in this target -->
   </target>
   
-  <target name="clean" depends="clean.module.sharezone_login_test, clean.module.sharezone_login_test_android" description="cleanup all"/>
+  <target name="clean" depends="clean.module.sharezone, clean.module.sharezone_android" description="cleanup all"/>
   
-  <target name="build.modules" depends="init, clean, compile.module.sharezone_login_test, compile.module.sharezone_login_test_android" description="build all modules"/>
+  <target name="build.modules" depends="init, clean, compile.module.sharezone, compile.module.sharezone_android" description="build all modules"/>
   
   <target name="all" depends="build.modules" description="build all"/>
 </project>

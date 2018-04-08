@@ -382,7 +382,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = de.codingbrain.sharezoneLoginTest;
+				PRODUCT_BUNDLE_IDENTIFIER = de.codingbrain.sharezone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -404,7 +404,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = de.codingbrain.sharezoneLoginTest;
+				PRODUCT_BUNDLE_IDENTIFIER = de.codingbrain.sharezone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
